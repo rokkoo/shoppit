@@ -1,5 +1,6 @@
 import { Text, View, StyleSheet } from 'react-native';
-import useSplashScreen from './src/app/hooks/useSplashScreen';
+
+import useSplashScreen from 'src/app/hooks/useSplashScreen';
 
 export default function App() {
   const { onLayoutRootView, fontsLoaded } = useSplashScreen();
