@@ -1,11 +1,22 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { Text, View, StyleSheet } from 'react-native';
+import useSplashScreen from './src/app/hooks/useSplashScreen';
 
 export default function App() {
+  const { onLayoutRootView, fontsLoaded } = useSplashScreen();
+
+  if (!fontsLoaded) {
+    return null;
+  }
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <View style={styles.container} onLayout={onLayoutRootView}>
+      <Text style={{ fontFamily: 'TankerRegular', fontSize: 30 }}>
+        Tanker Regular
+      </Text>
+      <Text style={{ fontFamily: 'HindRegular', fontSize: 30 }}>
+        Hind Regular
+      </Text>
+      <Text style={{ fontSize: 30 }}>Platform Default</Text>
     </View>
   );
 }
