@@ -2,13 +2,12 @@ import { View } from "react-native";
 import AppList from "src/app/components/List";
 import AppText from "src/app/components/Text";
 import AppTitle from "src/app/components/Title";
+import useLists from "src/app/stores/zustand/lists/hooks";
 import AppLayout from "src/app/ui/Layout";
 
-type Item = { title: string; id: string };
-type Data = Item[];
-const data: Data = new Array(100).fill({ title: "test2", id: "12" });
-
 function Home() {
+  const { lists } = useLists();
+
   return (
     <AppLayout>
       <AppTitle>Listas</AppTitle>
@@ -17,7 +16,7 @@ function Home() {
           return (
             <View
               style={{
-                backgroundColor: "green",
+                // backgroundColor: "green",
                 justifyContent: "center",
                 flex: 1,
                 width: "100%",
@@ -29,7 +28,7 @@ function Home() {
           );
         }}
         estimatedItemSize={50}
-        data={data}
+        data={lists}
       />
     </AppLayout>
   );
