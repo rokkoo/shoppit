@@ -5,7 +5,7 @@ type TitleProps = {
   style?: StyleProp<TextStyle>;
 };
 
-const Title: React.FC<TitleProps> = ({ children, style }) => {
+const AppTitle: React.FC<TitleProps> = ({ children, style }) => {
   return <Text style={[style, styles.title]}>{children}</Text>;
 };
 
@@ -16,4 +16,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Title;
+export default AppTitle;

@@ -1,12 +1,12 @@
 import { StyleSheet, View } from "react-native";
-import Text from "src/app/components/Text";
-import Title from "src/app/components/Title";
+import AppText from "src/app/components/Text";
+import AppTitle from "src/app/components/Title";
 
 function Home() {
   return (
     <View style={styles.container}>
-      <Title>title</Title>
-      <Text>Hind Regular</Text>
+      <AppTitle>title</AppTitle>
+      <AppText>Hind Regular</AppText>
     </View>
   );
 }

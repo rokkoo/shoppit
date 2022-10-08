@@ -5,7 +5,7 @@ type TextProps = {
   style?: StyleProp<TextStyle>;
 };
 
-const Text: React.FC<TextProps> = ({ children, style }) => {
+const AppText: React.FC<TextProps> = ({ children, style }) => {
   return <RNText style={[style, styles.title]}>{children}</RNText>;
 };
 
@@ -16,4 +16,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Text;
+export default AppText;
