@@ -6,7 +6,7 @@ type TextProps = {
 };
 
 const AppText: React.FC<TextProps> = ({ children, style }) => {
-  return <RNText style={[style, styles.title]}>{children}</RNText>;
+  return <RNText style={[styles.title, style]}>{children}</RNText>;
 };
 
 const styles = StyleSheet.create({

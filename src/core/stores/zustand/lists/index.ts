@@ -1,17 +1,46 @@
 import create from "zustand";
+import uuid from "react-native-uuid";
 
-export type ListItem = { title: string; id: string };
+import { List } from "./types";
 
 type State = {
-  lists: ListItem[];
+  lists: List[];
 };
 
 type Action = {
-  updateLists: (lists: State["lists"]) => void;
+  updateLists: (lists: List) => void;
+};
+
+const generateRandomItems = () => {
+  return new Array(10)
+    .fill({ title: "test", checked: false })
+    .map((e) => ({ ...e, id: uuid.v4() }));
 };
 
 // Create your store, which includes both state and (optionally) actions
 export const useListStore = create<State & Action>((set) => ({
-  lists: new Array(100).fill({ title: "test", id: "12" }),
-  updateLists: (lists) => set(() => ({ lists })),
+  lists: [
+    {
+      id: uuid.v4().toString(),
+      title: "List name",
+      elements: generateRandomItems(),
+    },
+  ],
+  updateLists: (list) =>
+    set((prev) => {
+      console.log("update");
+
+      const lists = prev.lists.map((item) => {
+        if (item.id === list.id) {
+          return {
+            ...item,
+            ...list,
+          };
+        }
+
+        return item;
+      });
+
+      return { ...prev, lists };
+    }),
 }));

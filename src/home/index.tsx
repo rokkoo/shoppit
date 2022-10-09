@@ -13,19 +13,15 @@ function Home() {
 
   return (
     <AppLayout>
-      <Pressable
-        onPress={() => {
-          navigation.navigate("LIST_DETAILS");
-        }}
-      >
+      <Pressable>
         <AppTitle>Listas</AppTitle>
       </Pressable>
-      {/* <AppList
+      <AppList
         renderItem={({ item }) => {
           return (
             <Pressable
               onPress={() => {
-                navigation.navigate("LIST_DETAILS", { details: item });
+                navigation.navigate("LIST_DETAILS", { list: item });
               }}
             >
               <View
@@ -45,7 +41,7 @@ function Home() {
         estimatedItemSize={50}
         data={lists}
         showsVerticalScrollIndicator={false}
-      /> */}
+      />
     </AppLayout>
   );
 }

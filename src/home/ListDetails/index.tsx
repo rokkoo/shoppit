@@ -1,30 +1,27 @@
-import { useNavigation } from "@react-navigation/native";
-import { View } from "react-native";
+import { useMemo } from "react";
 import AppText from "src/core/components/Text";
-import { ListItem } from "src/core/stores/zustand/lists";
+import useLists from "src/core/stores/zustand/lists/hooks";
 import AppLayout from "src/core/ui/Layout";
-import useAppNavigation from "src/navigation/hooks/useAppNavigation";
 import useAppRoute from "src/navigation/hooks/useAppRoute";
-import {
-  DetailsScreenRouteProp,
-  RootStackParamList,
-} from "src/navigation/types";
-
-type ListsDetailsProps = {
-  details: ListItem;
-};
+import { RootStackParamList } from "src/navigation/types";
+import ListSection from "./components/ListSection";
 
 const ListDetails = () => {
   const { route } = useAppRoute<RootStackParamList, "LIST_DETAILS">();
-  const params = route.params?.details;
+  const { list } = route.params;
+  const { lists } = useLists();
 
-  console.log({ params });
+  const listData = useMemo(() => {
+    return lists.find((item) => item.id === list.id);
+  }, [lists]);
+  // console.log({ list });
+
+  if (!listData) return null;
 
   return (
     <AppLayout>
-      <View>
-        <AppText>Details screen</AppText>
-      </View>
+      <AppText>Details screen</AppText>
+      <ListSection list={listData} />
     </AppLayout>
   );
 };
