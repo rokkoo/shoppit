@@ -1,9 +1,9 @@
 import create from "zustand";
 
-type Item = { title: string; id: string };
+export type ListItem = { title: string; id: string };
 
 type State = {
-  lists: Item[];
+  lists: ListItem[];
 };
 
 type Action = {
