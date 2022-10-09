@@ -1,8 +1,8 @@
 import { useNavigation } from "@react-navigation/native";
 import { View } from "react-native";
-import AppText from "src/app/components/Text";
-import { ListItem } from "src/app/stores/zustand/lists";
-import AppLayout from "src/app/ui/Layout";
+import AppText from "src/core/components/Text";
+import { ListItem } from "src/core/stores/zustand/lists";
+import AppLayout from "src/core/ui/Layout";
 import useAppNavigation from "src/navigation/hooks/useAppNavigation";
 import useAppRoute from "src/navigation/hooks/useAppRoute";
 import {

@@ -1,10 +1,10 @@
 import { Pressable, View } from "react-native";
 
-import AppLayout from "src/app/ui/Layout";
-import AppList from "src/app/components/List";
-import AppText from "src/app/components/Text";
-import AppTitle from "src/app/components/Title";
-import useLists from "src/app/stores/zustand/lists/hooks";
+import AppLayout from "src/core/ui/Layout";
+import AppList from "src/core/components/List";
+import AppText from "src/core/components/Text";
+import AppTitle from "src/core/components/Title";
+import useLists from "src/core/stores/zustand/lists/hooks";
 import useAppNavigation from "src/navigation/hooks/useAppNavigation";
 
 function Home() {
